@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://asim04.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // For GitHub pages deployment, it is '/<projectName>/'
+  baseUrl: '/Humanoid-Robotics-Textbook/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'physical-ai-humanoid-robotics', // Usually your repo name.
+  organizationName: 'Asim04', // Usually your GitHub org/user name.
+  projectName: 'Humanoid-Robotics-Textbook', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -57,7 +57,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/physical-ai-humanoid-robotics',
+            'https://github.com/Asim04/Humanoid-Robotics-Textbook',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           // Markdown and Remark plugins for KaTeX support
@@ -91,10 +91,6 @@ const config: Config = {
 
   themeConfig: {
     // Matomo analytics configuration
-    matomo: {
-      matomoUrl: 'https://YOUR_MATOMO_URL.com/',  // YOUR Matomo URL yahan dalo
-      siteId: 'YOUR_SITE_ID',                     // YOUR Matomo site ID
-    },
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -127,7 +123,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/facebook/physical-ai-humanoid-robotics',
+          href: 'https://github.com/Asim04/Humanoid-Robotics-Textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -175,7 +171,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/physical-ai-humanoid-robotics',
+              href: 'https://github.com/Asim04/Humanoid-Robotics-Textbook',
             },
             {
               label: 'ROS Answers',
