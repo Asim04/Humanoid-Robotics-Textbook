@@ -1,0 +1,47 @@
+{
+  "name": "physical-ai-humanoid-robotics-textbook",
+  "version": "1.0.0",
+  "description": "A comprehensive textbook on Physical AI and Humanoid Robotics",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd website && npm start",
+    "build": "cd website && npm run build",
+    "serve": "cd website && npm run serve",
+    "docs:dev": "cd website && npm start",
+    "docs:build": "cd website && npm run build",
+    "docs:serve": "cd website && npm run serve",
+    "lint": "echo 'No linting configured yet'",
+    "test": "echo 'No tests configured yet'",
+    "clean": "rm -rf website/node_modules",
+    "install:deps": "cd website && npm install"
+  },
+  "keywords": [
+    "robotics",
+    "ai",
+    "physical-ai",
+    "humanoid-robotics",
+    "ros2",
+    "gazebo",
+    "isaac-sim",
+    "unity",
+    "simulation",
+    "textbook",
+    "education"
+  ],
+  "author": "Physical AI & Humanoid Robotics Project",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook/issues"
+  },
+  "homepage": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook#readme",
+  "devDependencies": {
+    "docusaurus": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+
+# Docusaurus build output
+.build/
+dist/
+out/
+
+# Docusaurus temp files
+.docusaurus/
+.sass-cache/
+.vercel/
+
+# Environment variables
+.env*
+!.env.example
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage directory used by testing tools
+coverage/
+*.lcov
+
+# Temporary folders
+tmp/
+temp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+public/
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# CI/CD
+.github/workflows/cache/
+
+# Local configuration
+config/
+
+# TypeScript
+*.tsbuildinfo
+.next/
+.nuxt/

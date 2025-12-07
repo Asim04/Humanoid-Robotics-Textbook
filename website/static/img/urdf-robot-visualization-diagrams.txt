@@ -1,0 +1,222 @@
+# URDF/Robot Visualization Diagrams
+
+## 1. Basic URDF Structure
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    URDF Structure                       │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  <robot name="my_robot">                                │
+│    │                                                     │
+│    ├── <link name="base_link">                          │
+│    │   ├── <visual>                                     │
+│    │   │   └── <geometry>                               │
+│    │   │       └── <cylinder radius="0.2" length="0.1"/>│
+│    │   ├── <collision>                                  │
+│    │   │   └── <geometry>                               │
+│    │   │       └── <cylinder radius="0.2" length="0.1"/>│
+│    │   └── <inertial>                                   │
+│    │       ├── <mass value="1.0"/>                      │
+│    │       ├── <inertia ixx="1.0" ixy="0" ixz="0"      │
+│    │       │                    iyy="1.0" iyz="0"      │
+│    │       │                    izz="1.0"/>            │
+│    │                                                     │
+│    ├── <link name="wheel_1">                            │
+│    │   └── ...                                          │
+│    │                                                     │
+│    └── <joint name="base_to_wheel1" type="continuous">  │
+│        ├── <parent link="base_link"/>                   │
+│        ├── <child link="wheel_1"/>                      │
+│        └── <origin xyz="0.1 0.1 0" rpy="0 0 0"/>       │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 2. Robot Kinematic Chain
+
+```
+┌─────────────────────────────────────────────────────────┐
+│              Robot Kinematic Chain                      │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  Base Link                                              │
+│      │                                                  │
+│      │ Joint: Fixed (0 DOF)                             │
+│      ▼                                                  │
+│  Link 1 (e.g., Torso)                                   │
+│      │                                                  │
+│      │ Joint: Revolute (1 DOF - rotation)               │
+│      ▼                                                  │
+│  Link 2 (e.g., Upper Arm)                               │
+│      │                                                  │
+│      │ Joint: Revolute (1 DOF - rotation)               │
+│      ▼                                                  │
+│  Link 3 (e.g., Lower Arm)                               │
+│      │                                                  │
+│      │ Joint: Revolute (1 DOF - rotation)               │
+│      ▼                                                  │
+│  Link 4 (e.g., Hand/End Effector)                       │
+│                                                         │
+│  Forward Kinematics: Base → End Effector                │
+│  Inverse Kinematics: End Effector → Base                │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 3. URDF to RViz Visualization Pipeline
+
+```
+┌─────────────────────────────────────────────────────────┐
+│            URDF Visualization Pipeline                  │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │   URDF File │───▶│ robot_state │───▶│    RViz     │  │
+│  │             │    │ _publisher  │    │             │  │
+│  │  <robot>    │    │             │    │  3D Robot   │  │
+│  │    <link>   │    │ Subscribes: │    │  Visualization│  │
+│  │    <joint>  │    │ /joint_states│    │             │  │
+│  │  </robot>   │    │ /tf, /tf_static│  │             │  │
+│  └─────────────┘    └─────────────┘    └─────────────┘  │
+│                                                         │
+│         ▲                                    ▲          │
+│         │                                    │          │
+│  ┌─────────────┐                      ┌─────────────┐  │
+│  │ Joint State │                      │  TF Tree    │  │
+│  │ Publisher   │                      │             │  │
+│  │             │                      │ Tree of all │  │
+│  │ Publishes:  │                      │ coordinate  │  │
+│  │ /joint_states│                      │ transforms  │  │
+│  │             │                      │ in robot    │  │
+│  └─────────────┘                      └─────────────┘  │
+│         │                                    │          │
+│         └────────────────────────────────────┘          │
+│                                                         │
+│  ┌─────────────────────────────────────────────────────┐│
+│  │                    Robot State                      ││
+│  │              (Forward Kinematics)                   ││
+│  │  Calculates positions of all links based on joint   ││
+│  │  angles and the kinematic chain defined in URDF     ││
+│  └─────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────┘
+```
+
+## 4. Common URDF Joint Types
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                URDF Joint Types                         │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. Fixed Joint (0 DOF):                                │
+│     ┌─────────┐              ┌─────────┐                │
+│     │  Link1  │═════════════▶│  Link2  │                │
+│     └─────────┘ (No motion)  └─────────┘                │
+│                                                         │
+│  2. Revolute Joint (1 DOF - Rotation):                 │
+│     ┌─────────┐    θ     ┌─────────┐                   │
+│     │  Link1  │═══○═════▶│  Link2  │                   │
+│     └─────────┘ (Hinge)  └─────────┘                   │
+│                                                         │
+│  3. Continuous Joint (1 DOF - Unlimited Rotation):    │
+│     ┌─────────┐    ∞     ┌─────────┐                   │
+│     │  Link1  │═══●═════▶│  Link2  │                   │
+│     └─────────┘ (Free)   └─────────┘                   │
+│                                                         │
+│  4. Prismatic Joint (1 DOF - Linear):                  │
+│     ┌─────────┐    ↔     ┌─────────┐                   │
+│     │  Link1  │═══║═════▶│  Link2  │                   │
+│     └─────────┘ (Slider) └─────────┘                   │
+│                                                         │
+│  5. Floating Joint (6 DOF - Free in 3D):              │
+│     ┌─────────┐    ◊     ┌─────────┐                   │
+│     │  Link1  │═══◊═════▶│  Link2  │                   │
+│     └─────────┘ (6 DOF)  └─────────┘                   │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 5. Robot Control Architecture with URDF
+
+```
+┌─────────────────────────────────────────────────────────┐
+│            Robot Control Architecture                   │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐                                    │
+│  │   High-Level    │                                    │
+│  │   Controller    │                                    │
+│  │ (Path Planning, │                                    │
+│  │  Trajectory Gen)│                                    │
+│  └─────────┬───────┘                                    │
+│            │                                            │
+│            ▼                                            │
+│  ┌─────────────────┐                                    │
+│  │   Joint Space   │                                    │
+│  │   Controller    │                                    │
+│  │ (PID, Impedance,│                                    │
+│  │  Model-based)   │                                    │
+│  └─────────┬───────┘                                    │
+│            │                                            │
+│            ▼                                            │
+│  ┌─────────────────┐    ┌─────────────┐    ┌─────────┐ │
+│  │   Joint Space   │───▶│   Robot     │───▶│  Robot  │ │
+│  │   Commands      │    │   Dynamics  │    │   URDF  │ │
+│  │ (Desired Joint  │    │ (Gazebo,    │    │ (Model  │ │
+│  │  Positions,     │    │  PyBullet)  │    │  Def)   │ │
+│  │  Velocities,    │    │             │    │         │ │
+│  │  Efforts)       │    └─────────────┘    └─────────┘ │
+│  └─────────────────┘         │               ▲         │
+│                              │               │         │
+│                              ▼               │         │
+│  ┌─────────────────┐    ┌─────────────┐     │         │
+│  │   Joint Space   │    │  Forward    │     │         │
+│  │   Feedback      │◀───│  Kinematics │◀────┘         │
+│  │ (Actual Joint   │    │ (KDL, TF2)  │               │
+│  │  Positions,     │    │             │               │
+│  │  Velocities,    │    │ Calculates  │               │
+│  │  Efforts)       │    │ link poses  │               │
+│  └─────────────────┘    └─────────────┘               │
+│                              │                         │
+│                              ▼                         │
+│                       ┌─────────────┐                  │
+│                       │  Visualization│                 │
+│                       │   (RViz, etc)│                 │
+│                       │             │                  │
+│                       └─────────────┘                  │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 6. Humanoid Robot URDF Structure
+
+```
+┌─────────────────────────────────────────────────────────┐
+│            Humanoid Robot Structure                     │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│                    ┌─────────────┐                     │
+│                    │   HEAD      │                     │
+│                    │             │                     │
+│                    └─────┬───────┘                     │
+│                          │                             │
+│                    ┌─────▼───────┐                     │
+│                    │   TORSO     │                     │
+│                    │             │                     │
+│                    └─────┬─┬─────┘                     │
+│                          │ │                           │
+│                    ┌─────▼─▼─────┐                     │
+│                    │    WAIST    │                     │
+│                    └─────┬─┬─────┘                     │
+│                          │ │                           │
+│                    ┌─────▼─▼─────┐                     │
+│               ┌────┤  PELVIS     ├────┐                │
+│               │    └─────────────┘    │                │
+│               │                       │                │
+│         ┌─────▼───────┐        ┌──────▼────────┐       │
+│         │  LEFT LEG   │        │  RIGHT LEG    │       │
+│         │             │        │               │       │
+│         └─────────────┘        └───────────────┘       │
+│                                                         │
+│  Each leg has: hip_joint → thigh_link → knee_joint →  │
+│  calf_link → ankle_joint → foot_link                  │
+│                                                         │
+│  Each arm has: shoulder_joint → upper_arm_link →      │
+│  elbow_joint → lower_arm_link → wrist_joint → hand_link│
+└─────────────────────────────────────────────────────────┘
+```

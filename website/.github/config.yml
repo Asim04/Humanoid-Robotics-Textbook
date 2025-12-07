@@ -1,0 +1,5 @@
+# Configuration for new issue form
+contact_links:
+  - name: Question about the textbook
+    url: https://github.com/facebook/physical-ai-humanoid-robotics/discussions
+    about: Ask questions and discuss with other community members

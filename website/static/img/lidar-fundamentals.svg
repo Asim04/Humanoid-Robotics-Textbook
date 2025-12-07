@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <style>
+    .title { font: bold 20px sans-serif; fill: #2c3e50; }
+    .subtitle { font: 16px sans-serif; fill: #34495e; }
+    .sensor { fill: #3498db; stroke: #2980b9; stroke-width: 2; rx: 10; ry: 10; }
+    .lidar-beam { stroke: #e74c3c; stroke-width: 1; stroke-dasharray: 4,2; }
+    .lidar-point { fill: #e74c3c; }
+    .environment { fill: #ecf0f1; stroke: #7f8c8d; stroke-width: 2; }
+    .text { font: 14px sans-serif; fill: #2c3e50; }
+    .label { font: 14px sans-serif; fill: #e74c3c; font-weight: bold; }
+  </style>
+
+  <text x="400" y="30" class="title">LIDAR Fundamentals</text>
+
+  <!-- LIDAR Sensor -->
+  <rect x="350" y="400" width="100" height="40" class="sensor"/>
+  <text x="400" y="425" class="text" text-anchor="middle">LIDAR</text>
+
+  <!-- Environment - walls and objects -->
+  <rect x="100" y="100" width="600" height="20" class="environment"/> <!-- Ceiling -->
+  <rect x="100" y="100" width="20" height="300" class="environment"/> <!-- Left wall -->
+  <rect x="680" y="100" width="20" height="300" class="environment"/> <!-- Right wall -->
+  <rect x="100" y="400" width="600" height="20" class="environment"/> <!-- Floor -->
+
+  <!-- Objects in environment -->
+  <rect x="250" y="200" width="60" height="80" style="fill: #95a5a6; stroke: #7f8c8d; stroke-width: 1;"/> <!-- Object 1 -->
+  <rect x="500" y="180" width="80" height="100" style="fill: #95a5a6; stroke: #7f8c8d; stroke-width: 1;"/> <!-- Object 2 -->
+
+  <!-- LIDAR beams -->
+  <line x1="400" y1="400" x2="120" y2="120" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="250" y2="200" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="300" y2="100" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="400" y2="100" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="500" y2="180" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="680" y2="150" class="lidar-beam"/>
+  <line x1="400" y1="400" x2="650" y2="400" class="lidar-beam"/>
+
+  <!-- LIDAR points (detected surfaces) -->
+  <circle cx="120" cy="120" r="3" class="lidar-point"/>
+  <circle cx="250" cy="200" r="3" class="lidar-point"/>
+  <circle cx="300" cy="100" r="3" class="lidar-point"/>
+  <circle cx="400" cy="100" r="3" class="lidar-point"/>
+  <circle cx="500" cy="180" r="3" class="lidar-point"/>
+  <circle cx="680" cy="150" r="3" class="lidar-point"/>
+  <circle cx="650" cy="400" r="3" class="lidar-point"/>
+
+  <!-- Labels -->
+  <text x="130" y="110" class="label">Distance</text>
+  <text x="260" y="190" class="label">Object</text>
+  <text x="410" y="90" class="label">Ceiling</text>
+  <text x="690" y="140" class="label">Wall</text>
+
+  <!-- LIDAR scan representation -->
+  <text x="400" y="470" class="subtitle" text-anchor="middle">LIDAR generates 360° distance measurements</text>
+  <text x="400" y="490" class="subtitle" text-anchor="middle">Used for mapping, navigation, and obstacle detection</text>
+</svg>

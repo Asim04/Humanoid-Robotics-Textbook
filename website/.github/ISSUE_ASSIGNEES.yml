@@ -1,0 +1,12 @@
+# Configuration for automatic assignment of issues
+# This is a placeholder file - actual implementation would depend on specific needs
+
+# Default assignees for different types of issues
+bug:
+  - maintainers
+feature_request:
+  - maintainers
+content_issue:
+  - maintainers
+lab_issue:
+  - maintainers

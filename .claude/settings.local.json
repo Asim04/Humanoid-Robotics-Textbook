@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-i-foundations\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\" /s)",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\code-examples\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-ii-ros-fundamentals\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\labs\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-iii-simulation\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-v-humanoid\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-vi-vla\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\docs\\part-iv-isaac\")",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-1\")",
+      "Bash(python -m py_compile \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-1\\physical_ai_basics.py\")",
+      "Bash(python -m py_compile \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-1\\simulation_example.py\")",
+      "Bash(dir)",
+      "Bash(python -m py_compile \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-2\\sensor_fusion_example.py\")",
+      "Bash(python -m py_compile \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-2\\rgbd_processing.py\")",
+      "Bash(python -m py_compile \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-2\\imu_proprioception.py\")",
+      "Bash(python -c \"import sys; sys.path.append(''D:/ASIM DOUCOMENT/code/Q_4/hackathon/book/website/static/code/chapter-2''); import sensor_fusion_example; print(''Module imported successfully'')\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-2\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\img\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\specs\\001-physical-ai-robotics-textbook\\checklists\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-3\")",
+      "Bash(mkdir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-4\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-4\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\\static\\code\\chapter-5\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\website\" /s)",
+      "Bash(findstr /i \"simul\\|gazebo\\|isaac\\|webots\")",
+      "Bash(dir \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\specs\\001-physical-ai-robotics-textbook\\checklists\" /s)",
+      "Bash(findstr /i \"checklist\\|todo\\|task\" \"D:\\ASIM DOUCOMENT\\code\\Q_4\\hackathon\\book\\specs\\001-physical-ai-robotics-textbook\\*\" /s)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
