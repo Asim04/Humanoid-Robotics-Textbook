@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd website && npm start",
-    "build": "cd website && npm run build",
+    "build": "npm run install:deps && npm run docs:build",
     "serve": "cd website && npm run serve",
     "docs:dev": "cd website && npm start",
     "docs:build": "cd website && npm run build",
