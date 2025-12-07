@@ -1,5 +1,5 @@
 {
-  "name": "physical-ai-humanoid-robotics-textbook",
+  "name": "humanoid-robotics-textbook",
   "version": "1.0.0",
   "description": "A comprehensive textbook on Physical AI and Humanoid Robotics",
   "main": "index.js",
@@ -32,16 +32,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook.git"
+    "url": "https://github.com/Asim04/Humanoid-Robotics-Textbook.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook/issues"
+    "url": "https://github.com/Asim04/Humanoid-Robotics-Textbook/issues"
   },
-  "homepage": "https://github.com/your-username/physical-ai-humanoid-robotics-textbook#readme",
-  "devDependencies": {
-    "docusaurus": "^3.1.0"
-  },
+  "homepage": "https://github.com/Asim04/Humanoid-Robotics-Textbook#readme",
+  
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }
